@@ -1,0 +1,32 @@
+{
+  "name": "fight-calendar-cli",
+  "version": "0.1.0",
+  "description": "CLI to generate iCal files for upcoming fight events (UFC, OKTAGON MMA, ONE FC).",
+  "type": "module",
+  "bin": {
+    "fight-calendar": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "start": "pnpm build && node dist/cli.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "cli-progress": "^3.12.0",
+    "colorette": "^2.0.20",
+    "commander": "^12.0.0",
+    "ics": "^3.0.1",
+    "pino": "^9.5.0",
+    "undici": "^6.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/cli-progress": "^3.11.5",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "typescript": "^5.6.3"
+  }
+}
