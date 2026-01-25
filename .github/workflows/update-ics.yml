@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
@@ -33,7 +32,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build and generate ICS
-        run: pnpm start -- --output FightCalendar.ics --log-level error
+        run: |
+          pnpm build
+          node dist/cli.js --output FightCalendar.ics
 
       - name: Prepare ics branch
         id: commit
