@@ -12,17 +12,24 @@ export class UfcFetcher implements PromotionFetcher {
     const $ = await fetchDocument(this.url, this.logger);
     const events: FightEvent[] = [];
 
-    $("div.view-events .c-card-event--result").each((_, element) => {
+    $("article.c-card-event--result").each((_, element) => {
       const container = $(element);
       const title = container.find("h3.c-card-event--result__headline").text().trim();
-      const url = `https://www.ufc.com${container.find("a.c-card-event--result__link").attr("href") ?? ""}`;
-      const dateText = container.find("div.c-card-event--result__date").text().trim();
+      const url = `https://www.ufc.com${container.find("a.c-card-event--result__link, h3.c-card-event--result__headline a").attr("href") ?? ""}`;
+
+      const dateNode = container.find("div.c-card-event--result__date");
+      const timestamp = parseTimestamp(dateNode.attr("data-main-card-timestamp") ?? dateNode.attr("data-prelims-card-timestamp"));
+      const dateText = dateNode.text().trim();
+      const startDate = timestamp ?? parseDate(dateText);
       const location = container.find("div.c-card-event--result__location").text().trim();
-      const startDate = parseDate(dateText);
 
       if (!title || !startDate) {
         this.logger.warn("Skipping UFC event with missing title or date", { title, dateText });
         return;
+      }
+
+      if (startDate.getTime() < Date.now()) {
+        return; // ignore past events when list intermixes
       }
 
       const cardBouts = extractBouts(container);
@@ -54,4 +61,11 @@ const parseDate = (value: string): Date | null => {
   const parsed = Date.parse(value);
   if (Number.isNaN(parsed)) return null;
   return new Date(parsed);
+};
+
+const parseTimestamp = (value?: string | null): Date | null => {
+  if (!value) return null;
+  const asNumber = Number.parseInt(value, 10);
+  if (Number.isNaN(asNumber)) return null;
+  return new Date(asNumber * 1000);
 };

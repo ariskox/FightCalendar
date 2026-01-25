@@ -12,13 +12,53 @@ export class OneFcFetcher implements PromotionFetcher {
     const $ = await fetchDocument(this.url, this.logger);
     const html = $.html();
 
-    const jsonEvents = this.parseFromApolloState(html);
-    if (jsonEvents.length) {
-      return jsonEvents;
+    const nextDataEvents = this.parseFromNextData(html);
+    if (nextDataEvents.length) {
+      return nextDataEvents;
+    }
+
+    const apolloEvents = this.parseFromApolloState(html);
+    if (apolloEvents.length) {
+      return apolloEvents;
     }
 
     this.logger.warn("Falling back to DOM scraping for ONE FC events");
     return this.parseFromDom($);
+  }
+
+  private parseFromNextData(html: string): FightEvent[] {
+    const scriptRegex = /<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s;
+    const match = scriptRegex.exec(html);
+    if (!match) return [];
+
+    try {
+      const data = JSON.parse(match[1]);
+      const upcoming = data?.props?.pageProps?.upcomingEvents ?? [];
+      const now = Date.now();
+
+      return upcoming
+        .map((event: any) => {
+          const start = event?.schedule?.start_time;
+          const startDate = start ? new Date(start) : undefined;
+          if (!startDate || Number.isNaN(startDate.getTime())) return null;
+          if (startDate.getTime() < now) return null;
+
+          const title: string | undefined = event?.title;
+          const slug: string | undefined = event?.slug;
+          const city: string | undefined = event?.city;
+          const tz: string | undefined = event?.timezone;
+          const url = slug ? `https://watch.onefc.com/upcoming-events/${slug}` : this.url;
+          const location = city || tz || undefined;
+
+          if (!title || !url) return null;
+
+          return { promotion: this.name, title, url, startDate, location } satisfies FightEvent;
+        })
+        .filter((e: FightEvent | null): e is FightEvent => Boolean(e));
+    } catch (error) {
+      this.logger.error("Failed to parse ONE FC next data", { error });
+      return [];
+    }
   }
 
   private parseFromApolloState(html: string): FightEvent[] {
