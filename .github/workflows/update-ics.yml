@@ -32,7 +32,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build and generate ICS
-        run: pnpm start -- --output FightCalendar.ics --log-level error
+        run: |
+          pnpm build
+          node dist/cli.js --output FightCalendar.ics
 
       - name: Prepare ics branch
         id: commit
