@@ -47,3 +47,7 @@ jobs:
             git commit -m "chore: update FightCalendar.ics"
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Push updates
+        if: steps.commit.outputs.changed == 'true'
+        run: git push origin ics
