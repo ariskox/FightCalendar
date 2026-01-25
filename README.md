@@ -14,7 +14,7 @@ pnpm build
 Run the CLI to fetch events and create an `.ics` file:
 
 ```bash
-pnpm start -- --output events.ics --log-level info
+node dist/cli.js --output fight_calendar.ics
 ```
 
 Options:
