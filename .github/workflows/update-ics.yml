@@ -1,4 +1,4 @@
-name: Update Fight Calendar ICS
+name: Update Fight Calendar ICS (main)
 
 on:
   schedule:
