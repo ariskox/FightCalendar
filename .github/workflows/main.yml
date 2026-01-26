@@ -1,12 +1,12 @@
-name: Update Fight Calendar ICS
+name: Update Fight Calendar
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "30 * * * *"
   workflow_dispatch:
 
 jobs:
-  update-ics:
+  update-ics-main:
     runs-on: ubuntu-latest
     permissions:
       contents: write
