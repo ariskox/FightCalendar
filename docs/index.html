@@ -42,10 +42,10 @@
     }
     .header {
       display: flex;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
       margin-bottom: 20px;
     }
     .title-group {
@@ -65,9 +65,12 @@
     }
     .actions {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 10px;
+      width: auto;
+      align-items: flex-end;
     }
+    .actions .btn { justify-content: center; }
     .btn {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #0b0c14;
@@ -127,6 +130,7 @@
       </div>
       <div class="actions">
         <a class="btn" id="subscribeBtn" href="#">Subscribe</a>
+        <a class="btn" id="googleBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
       </div>
     </div>
 
@@ -138,12 +142,14 @@
 
   <script>
     (function() {
-      const feedUrl = 'webcal://raw.githubusercontent.com/ariskox/FightCalendar/refs/heads/ics/FightCalendar.ics';
+      const feedUrl = 'webcal://raw.githubusercontent.com/ariskox/FightCalendar/ics/FightCalendar.ics';
       const subscribeBtn = document.getElementById('subscribeBtn');
+      const googleBtn = document.getElementById('googleBtn');
       const calendarUrlInput = document.getElementById('calendarUrl');
       const copyBtn = document.getElementById('copyBtn');
 
       subscribeBtn.href = feedUrl;
+      googleBtn.href = `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(feedUrl)}`;
       calendarUrlInput.value = feedUrl;
 
       copyBtn.addEventListener('click', () => {
