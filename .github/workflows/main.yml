@@ -1,8 +1,8 @@
-name: Update Fight Calendar ICS
+name: Update Fight Calendar
 
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "30 * * * *"
   workflow_dispatch:
 
 jobs:
