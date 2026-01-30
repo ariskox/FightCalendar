@@ -47,7 +47,7 @@ export class OneFcFetcher implements PromotionFetcher {
           const slug: string | undefined = event?.slug;
           const city: string | undefined = event?.city;
           const tz: string | undefined = event?.timezone;
-          const url = slug ? `https://watch.onefc.com/upcoming-events/${slug}` : this.url;
+          const url = slug ? `https://watch.onefc.com/events/${slug}` : this.url;
           const location = city || tz || undefined;
 
           if (!title || !url) return null;
