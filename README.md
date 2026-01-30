@@ -3,7 +3,7 @@
 Generate an iCal file with upcoming fight events from UFC, OKTAGON MMA, and ONE FC.
 
 Use this link to subscribe directly. Daily updates.<br>
-[Fight Calendar](https://raw.githubusercontent.com/ariskox/FightCalendar/refs/heads/ics/FightCalendar.ics)
+[Fight Calendar](https://ariskox.github.io/FightCalendar/)
 
 ### Installation
 

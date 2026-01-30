@@ -88,10 +88,7 @@ const mergeWithExisting = async (outputPath: string, newEvents: ParsedVevent[]):
 
   newEvents.forEach((entry) => {
     const existing = map.get(entry.key);
-    if (existing && veventEqualIgnoringDtstamp(existing.raw, entry.raw)) {
-      return; // keep existing, only DTSTAMP differs
-    }
-    map.set(entry.key, entry);
+    map.set(entry.key, existing && existing.raw === entry.raw ? existing : entry);
   });
 
   return Array.from(map.values());
@@ -151,21 +148,6 @@ const buildKeyFromParts = (parts: { url?: string; summary?: string; dtstart?: st
   if (parts.summary && parts.dtstart) return `${normalizeSummary(parts.summary)}|${parts.dtstart.trim()}`;
   if (parts.uid) return parts.uid.trim();
   return undefined;
-};
-
-const veventEqualIgnoringDtstamp = (a: string, b: string): boolean => {
-  const na = stripDtstamp(a);
-  const nb = stripDtstamp(b);
-  return na === nb;
-};
-
-const stripDtstamp = (vevent: string): string => {
-  const unfolded = unfoldLines(vevent);
-  const filtered = unfolded
-    .split("\n")
-    .filter((line) => !line.startsWith("DTSTAMP:"))
-    .join("\n");
-  return filtered.trim();
 };
 
 const buildDescription = (event: FightEvent): string => {
