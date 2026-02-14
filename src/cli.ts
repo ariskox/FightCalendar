@@ -15,18 +15,23 @@ program
   .name("fight-calendar")
   .description("Generate an iCal file with upcoming fight events (UFC, OKTAGON MMA, ONE FC)")
   .option("-o, --output <file>", "Output .ics file path", "events.ics")
+  .option("-p, --include-past", "Include past events in the generated calendar", false)
+  .option("--past-only", "Include only past events in the generated calendar", false)
   .option("-l, --log-level <level>", "Log level (fatal|error|warn|info|debug|trace|silent)", process.env.LOG_LEVEL ?? "error")
   .showHelpAfterError();
 
 const run = async () => {
-  const opts = program.parse(process.argv).opts<{ output: string; logLevel: LogLevel }>();
+  const opts = program.parse(process.argv).opts<{ output: string; includePast: boolean; pastOnly: boolean; logLevel: LogLevel }>();
   const outputPath = resolve(process.cwd(), opts.output);
   const logger = createLogger(opts.logLevel);
 
   const fetchers = [new UfcFetcher(logger), new OktagonFetcher(logger), new OneFcFetcher(logger)];
   const service = new EventService(fetchers, logger);
 
-  const { events, counts } = await service.collectEvents();
+  const { events, counts } = await service.collectEvents({
+    includePastEvents: opts.includePast || opts.pastOnly,
+    pastEventsOnly: opts.pastOnly
+  });
   if (!events.length) {
     logger.warn("No events found. Nothing to write to .ics file.");
     return;

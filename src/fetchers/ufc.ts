@@ -1,15 +1,33 @@
-import { PromotionFetcher, FightEvent, Bout, Logger } from "../types.js";
+import { PromotionFetcher, FightEvent, Bout, Logger, FetchOptions } from "../types.js";
 import { fetchDocument } from "./base.js";
 import type { Cheerio } from "cheerio";
 
 export class UfcFetcher implements PromotionFetcher {
   readonly name = "ufc" as const;
   private readonly url = "https://www.ufc.com/events#events-list-upcoming";
+  private readonly loadMoreUrl = "https://www.ufc.com/events?page=1";
 
   constructor(private readonly logger: Logger) {}
 
-  async fetchUpcomingEvents(): Promise<FightEvent[]> {
+  async fetchUpcomingEvents(options?: FetchOptions): Promise<FightEvent[]> {
+    const includePastEvents = Boolean(options?.includePastEvents);
+    const pastEventsOnly = Boolean(options?.pastEventsOnly);
     const $ = await fetchDocument(this.url, this.logger);
+    const events = this.parseEvents($, includePastEvents, pastEventsOnly);
+
+    if (includePastEvents) {
+      try {
+        const $loadMore = await fetchDocument(this.loadMoreUrl, this.logger);
+        events.push(...this.parseEvents($loadMore, true, pastEventsOnly));
+      } catch (error) {
+        this.logger.warn("Failed to load additional UFC past events page", { error });
+      }
+    }
+
+    return events;
+  }
+
+  private parseEvents($: Awaited<ReturnType<typeof fetchDocument>>, includePastEvents: boolean, pastEventsOnly: boolean): FightEvent[] {
     const events: FightEvent[] = [];
 
     $("article.c-card-event--result").each((_, element) => {
@@ -28,8 +46,12 @@ export class UfcFetcher implements PromotionFetcher {
         return;
       }
 
-      if (startDate.getTime() < Date.now()) {
+      const isPastEvent = startDate.getTime() < Date.now();
+      if (!includePastEvents && isPastEvent) {
         return; // ignore past events when list intermixes
+      }
+      if (pastEventsOnly && !isPastEvent) {
+        return;
       }
 
       const cardBouts = extractBouts(container);
