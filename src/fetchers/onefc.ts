@@ -1,104 +1,80 @@
-import { PromotionFetcher, FightEvent, Logger } from "../types.js";
+import { PromotionFetcher, FightEvent, Logger, FetchOptions } from "../types.js";
 import { fetchDocument } from "./base.js";
-import { load } from "cheerio";
 
 export class OneFcFetcher implements PromotionFetcher {
   readonly name = "one" as const;
-  private readonly url = "https://watch.onefc.com/upcoming-events";
+  private readonly url = "https://www.onefc.com/events/";
 
   constructor(private readonly logger: Logger) {}
 
-  async fetchUpcomingEvents(): Promise<FightEvent[]> {
+  async fetchUpcomingEvents(options?: FetchOptions): Promise<FightEvent[]> {
+    const includePastEvents = Boolean(options?.includePastEvents);
+    const pastEventsOnly = Boolean(options?.pastEventsOnly);
     const $ = await fetchDocument(this.url, this.logger);
-    const html = $.html();
+    const events = this.parseFromSections($, includePastEvents, pastEventsOnly);
+    if (events.length) return events;
 
-    const nextDataEvents = this.parseFromNextData(html);
-    if (nextDataEvents.length) {
-      return nextDataEvents;
-    }
-
-    const apolloEvents = this.parseFromApolloState(html);
-    if (apolloEvents.length) {
-      return apolloEvents;
-    }
-
-    this.logger.warn("Falling back to DOM scraping for ONE FC events");
-    return this.parseFromDom($);
+    this.logger.warn("Falling back to generic DOM scraping for ONE FC events");
+    return this.parseFromDom($, includePastEvents, pastEventsOnly);
   }
 
-  private parseFromNextData(html: string): FightEvent[] {
-    const scriptRegex = /<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s;
-    const match = scriptRegex.exec(html);
-    if (!match) return [];
-
-    try {
-      const data = JSON.parse(match[1]);
-      const upcoming = data?.props?.pageProps?.upcomingEvents ?? [];
-      const now = Date.now();
-
-      return upcoming
-        .map((event: any) => {
-          const start = event?.schedule?.start_time;
-          const startDate = start ? new Date(start) : undefined;
-          if (!startDate || Number.isNaN(startDate.getTime())) return null;
-          if (startDate.getTime() < now) return null;
-
-          const title: string | undefined = event?.title;
-          const slug: string | undefined = event?.slug;
-          const city: string | undefined = event?.city;
-          const tz: string | undefined = event?.timezone;
-          const url = slug ? `https://watch.onefc.com/events/${slug}` : this.url;
-          const location = city || tz || undefined;
-
-          if (!title || !url) return null;
-
-          return { promotion: this.name, title, url, startDate, location } satisfies FightEvent;
-        })
-        .filter((e: FightEvent | null): e is FightEvent => Boolean(e));
-    } catch (error) {
-      this.logger.error("Failed to parse ONE FC next data", { error });
-      return [];
-    }
-  }
-
-  private parseFromApolloState(html: string): FightEvent[] {
-    const scriptRegex = /__APOLLO_STATE__\s*=\s*(\{.*?\})\s*;<\/script>/s;
-    const match = scriptRegex.exec(html);
-    if (!match) return [];
-
-    try {
-      const apolloState = JSON.parse(match[1]);
-      const events: FightEvent[] = [];
-      Object.values(apolloState).forEach((value: any) => {
-        if (value && typeof value === "object" && value.__typename === "Event") {
-          const title: string | undefined = value.name;
-          const startDate = value.live_time ? new Date(value.live_time) : undefined;
-          const url: string | undefined = value.permalink ? `https://watch.onefc.com${value.permalink}` : undefined;
-          const location: string | undefined = value.venue ?? value.location ?? undefined;
-          if (title && startDate && url) {
-            events.push({ promotion: this.name, title, url, startDate, location });
-          }
-        }
-      });
-      return events;
-    } catch (error) {
-      this.logger.error("Failed to parse ONE FC apollo state", { error });
-      return [];
-    }
-  }
-
-  private parseFromDom($: ReturnType<typeof load>): FightEvent[] {
+  private parseFromSections($: Awaited<ReturnType<typeof fetchDocument>>, includePastEvents: boolean, pastEventsOnly: boolean): FightEvent[] {
     const events: FightEvent[] = [];
-    $("a[href*='event']").each((_, el) => {
-      const link = $(el);
-      const title = link.find("h3, h4").first().text().trim();
-      const url = link.attr("href") ?? this.url;
-      const dateText = link.find("time").attr("datetime") ?? link.find(".date, .event-date").text().trim();
-      const startDate = dateText ? new Date(dateText) : null;
-      if (title && startDate && !Number.isNaN(startDate.getTime())) {
-        events.push({ promotion: this.name, title, url, startDate });
-      }
+    const seen = new Set<string>();
+    const now = Date.now();
+    const selector = pastEventsOnly
+      ? "#past-events-section .simple-post-card.is-event"
+      : includePastEvents
+      ? "#upcoming-events-section .simple-post-card.is-event, #past-events-section .simple-post-card.is-event"
+      : "#upcoming-events-section .simple-post-card.is-event";
+
+    $(selector).each((_, el) => {
+      const card = $(el);
+      const title = card.find("a.title").first().attr("title") ?? card.find("a.title").first().text().trim();
+      const href = card.find("a.title").first().attr("href") ?? card.find("a[href*='/events/']").first().attr("href");
+      const url = href ? new URL(href, this.url).toString() : this.url;
+      const timestampText = card.find(".datetime").first().attr("data-timestamp") ?? "";
+      const timestamp = Number.parseInt(timestampText, 10);
+      const startDate = Number.isNaN(timestamp) ? null : new Date(timestamp * 1000);
+      const location = card.find(".location, .event-location").first().text().trim() || undefined;
+
+      if (!title || !startDate || Number.isNaN(startDate.getTime())) return;
+      const isPastEvent = startDate.getTime() < now;
+      if (!includePastEvents && isPastEvent) return;
+      if (pastEventsOnly && !isPastEvent) return;
+      if (seen.has(url)) return;
+
+      seen.add(url);
+      events.push({ promotion: this.name, title, url, startDate, location });
     });
-    return events;
+
+    return events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+  }
+
+  private parseFromDom($: Awaited<ReturnType<typeof fetchDocument>>, includePastEvents: boolean, pastEventsOnly: boolean): FightEvent[] {
+    const events: FightEvent[] = [];
+    const seen = new Set<string>();
+    const now = Date.now();
+
+    $("a[href*='/events/']").each((_, el) => {
+      const link = $(el);
+      const title = link.attr("title") ?? link.find("h3, h4").first().text().trim();
+      const href = link.attr("href") ?? this.url;
+      const url = new URL(href, this.url).toString();
+      const timestampText = link.closest(".simple-post-card").find(".datetime").first().attr("data-timestamp") ?? "";
+      const timestamp = Number.parseInt(timestampText, 10);
+      const startDate = Number.isNaN(timestamp) ? null : new Date(timestamp * 1000);
+
+      if (!title || !startDate || Number.isNaN(startDate.getTime())) return;
+      const isPastEvent = startDate.getTime() < now;
+      if (!includePastEvents && isPastEvent) return;
+      if (pastEventsOnly && !isPastEvent) return;
+      if (seen.has(url)) return;
+
+      seen.add(url);
+      events.push({ promotion: this.name, title, url, startDate });
+    });
+
+    return events.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
   }
 }

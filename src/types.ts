@@ -18,9 +18,14 @@ export interface Bout {
 
 export type PromotionName = "ufc" | "oktagon" | "one";
 
+export interface FetchOptions {
+  includePastEvents?: boolean;
+  pastEventsOnly?: boolean;
+}
+
 export interface PromotionFetcher {
   readonly name: PromotionName;
-  fetchUpcomingEvents(): Promise<FightEvent[]>;
+  fetchUpcomingEvents(options?: FetchOptions): Promise<FightEvent[]>;
 }
 
 export interface FetchContext {
