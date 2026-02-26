@@ -48,8 +48,8 @@ export class EventService {
       const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
-      const urlKeysToUpdate = [urlKey, existingUrlKey].filter((key): key is string => Boolean(key));
-      urlKeysToUpdate.forEach((key) => byUrl.set(key, merged));
+      const urlKeysToMerge = [urlKey, existingUrlKey].filter((key): key is string => Boolean(key));
+      urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
 
       const keysToDelete = new Set([titleDateKey, existingTitleDateKey]);
       keysToDelete.delete(mergedTitleDateKey);
@@ -57,7 +57,7 @@ export class EventService {
       byTitleDate.set(mergedTitleDateKey, merged);
     });
 
-    return Array.from(new Set([...byUrl.values(), ...byTitleDate.values()]));
+    return Array.from(byTitleDate.values());
   }
 
   private buildUrlKey(event: FightEvent): string {
@@ -79,7 +79,9 @@ export class EventService {
   }
 
   private normalizePath(pathname: string): string {
-    return pathname.replace(/\/{2,}/g, "/").replace(/\/+$/, "") || "/";
+    const multipleSlashesPattern = /\/{2,}/g;
+    const trailingSlashesPattern = /\/+$/;
+    return pathname.replace(multipleSlashesPattern, "/").replace(trailingSlashesPattern, "") || "/";
   }
 
   private pickLatest(current: FightEvent, candidate: FightEvent): FightEvent {
