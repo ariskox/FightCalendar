@@ -35,7 +35,8 @@ export class EventService {
     events.forEach((event) => {
       const urlKey = this.buildUrlKey(event);
       const titleDateKey = this.buildTitleDateKey(event);
-      const existing = (urlKey ? byUrl.get(urlKey) : undefined) ?? byTitleDate.get(titleDateKey);
+      const existingByUrl = urlKey ? byUrl.get(urlKey) : undefined;
+      const existing = existingByUrl ?? byTitleDate.get(titleDateKey);
       if (!existing) {
         if (urlKey) byUrl.set(urlKey, event);
         byTitleDate.set(titleDateKey, event);
@@ -47,10 +48,12 @@ export class EventService {
       const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
-      if (urlKey) byUrl.set(urlKey, merged);
-      if (existingUrlKey && existingUrlKey !== urlKey) byUrl.set(existingUrlKey, merged);
-      if (titleDateKey !== mergedTitleDateKey) byTitleDate.delete(titleDateKey);
-      if (existingTitleDateKey !== mergedTitleDateKey) byTitleDate.delete(existingTitleDateKey);
+      const urlKeys = [urlKey, existingUrlKey].filter((key): key is string => Boolean(key));
+      urlKeys.forEach((key) => byUrl.set(key, merged));
+
+      const keysToDelete = new Set([titleDateKey, existingTitleDateKey]);
+      keysToDelete.delete(mergedTitleDateKey);
+      keysToDelete.forEach((key) => byTitleDate.delete(key));
       byTitleDate.set(mergedTitleDateKey, merged);
     });
 
