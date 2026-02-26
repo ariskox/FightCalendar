@@ -51,14 +51,11 @@ export class EventService {
       const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
-      if (urlKey || existingUrlKey) {
-        const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key);
-        urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
-      }
+      if (urlKey) byUrl.set(urlKey, merged);
+      if (existingUrlKey && existingUrlKey !== urlKey) byUrl.set(existingUrlKey, merged);
 
-      const keysToDelete = new Set([titleDateKey, existingTitleDateKey]);
-      keysToDelete.delete(mergedTitleDateKey);
-      keysToDelete.forEach((key) => byTitleDate.delete(key));
+      if (titleDateKey !== mergedTitleDateKey) byTitleDate.delete(titleDateKey);
+      if (existingTitleDateKey !== mergedTitleDateKey) byTitleDate.delete(existingTitleDateKey);
       byTitleDate.set(mergedTitleDateKey, merged);
     });
 
