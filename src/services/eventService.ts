@@ -3,7 +3,7 @@ import { ProgressBar } from "../utils/progress.js";
 
 export class EventService {
   private static readonly multipleSlashesPattern = /\/{2,}/g;
-  private static readonly trailingSlashesPattern = /\/+$/;
+  private static readonly trailingSlashPattern = /\/+$/;
 
   constructor(private readonly fetchers: PromotionFetcher[], private readonly logger: Logger) {}
 
@@ -48,16 +48,16 @@ export class EventService {
 
       const merged = this.pickLatest(existing, event);
       const existingUrlKey = this.buildUrlKey(existing);
-      const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
+      const existingTitleDateKey = existing === merged ? mergedTitleDateKey : this.buildTitleDateKey(existing);
 
       if (urlKey) byUrl.set(urlKey, merged);
       if (existingUrlKey && existingUrlKey !== urlKey) byUrl.set(existingUrlKey, merged);
 
-      if (titleDateKey !== mergedTitleDateKey) byTitleDate.delete(titleDateKey);
-      if (existingTitleDateKey !== mergedTitleDateKey && existingTitleDateKey !== titleDateKey) {
-        byTitleDate.delete(existingTitleDateKey);
-      }
+      const keysToDelete = titleDateKey === existingTitleDateKey ? [titleDateKey] : [titleDateKey, existingTitleDateKey];
+      keysToDelete.forEach((key) => {
+        if (key !== mergedTitleDateKey) byTitleDate.delete(key);
+      });
       byTitleDate.set(mergedTitleDateKey, merged);
     });
 
@@ -88,7 +88,7 @@ export class EventService {
     return (
       pathname
         .replace(EventService.multipleSlashesPattern, "/")
-        .replace(EventService.trailingSlashesPattern, "") || "/"
+        .replace(EventService.trailingSlashPattern, "") || "/"
     );
   }
 
