@@ -2,6 +2,9 @@ import { PromotionFetcher, FightEvent, Logger, FetchOptions } from "../types.js"
 import { ProgressBar } from "../utils/progress.js";
 
 export class EventService {
+  private static readonly multipleSlashesPattern = /\/{2,}/g;
+  private static readonly trailingSlashesPattern = /\/+$/;
+
   constructor(private readonly fetchers: PromotionFetcher[], private readonly logger: Logger) {}
 
   async collectEvents(options?: FetchOptions): Promise<{ events: FightEvent[]; counts: Record<string, number> }> {
@@ -48,7 +51,7 @@ export class EventService {
       const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
-      const urlKeysToMerge = [urlKey, existingUrlKey].filter((key): key is string => Boolean(key));
+      const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key !== "");
       urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
 
       const keysToDelete = new Set([titleDateKey, existingTitleDateKey]);
@@ -61,7 +64,7 @@ export class EventService {
   }
 
   private buildUrlKey(event: FightEvent): string {
-    const trimmed = (event.url ?? "").trim();
+    const trimmed = event.url.trim();
     if (!trimmed) return "";
     try {
       const parsed = new URL(trimmed);
@@ -79,9 +82,11 @@ export class EventService {
   }
 
   private normalizePath(pathname: string): string {
-    const multipleSlashesPattern = /\/{2,}/g;
-    const trailingSlashesPattern = /\/+$/;
-    return pathname.replace(multipleSlashesPattern, "/").replace(trailingSlashesPattern, "") || "/";
+    return (
+      pathname
+        .replace(EventService.multipleSlashesPattern, "/")
+        .replace(EventService.trailingSlashesPattern, "") || "/"
+    );
   }
 
   private pickLatest(current: FightEvent, candidate: FightEvent): FightEvent {
