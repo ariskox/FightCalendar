@@ -56,7 +56,7 @@ export class EventService {
   }
 
   private buildUrlKey(event: FightEvent): string {
-    const trimmed = event.url.trim();
+    const trimmed = (event.url ?? "").trim();
     if (!trimmed) return "";
     try {
       const parsed = new URL(trimmed);
