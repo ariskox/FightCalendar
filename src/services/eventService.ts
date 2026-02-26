@@ -35,7 +35,7 @@ export class EventService {
     events.forEach((event) => {
       const urlKey = this.buildUrlKey(event);
       const titleDateKey = this.buildTitleDateKey(event);
-      const existing = (urlKey ? byUrl.get(urlKey) : undefined) ?? byTitleDate.get(titleDateKey);
+      const existing = byUrl.get(urlKey) ?? byTitleDate.get(titleDateKey);
       if (!existing) {
         if (urlKey) byUrl.set(urlKey, event);
         byTitleDate.set(titleDateKey, event);
@@ -45,14 +45,16 @@ export class EventService {
       const merged = this.pickLatest(existing, event);
       const existingUrlKey = this.buildUrlKey(existing);
       const existingTitleDateKey = this.buildTitleDateKey(existing);
+      const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
       if (urlKey) byUrl.set(urlKey, merged);
       if (existingUrlKey) byUrl.set(existingUrlKey, merged);
-      byTitleDate.set(titleDateKey, merged);
-      byTitleDate.set(existingTitleDateKey, merged);
+      if (titleDateKey !== mergedTitleDateKey) byTitleDate.delete(titleDateKey);
+      if (existingTitleDateKey !== mergedTitleDateKey) byTitleDate.delete(existingTitleDateKey);
+      byTitleDate.set(mergedTitleDateKey, merged);
     });
 
-    return Array.from(new Set(byTitleDate.values()));
+    return Array.from(byTitleDate.values());
   }
 
   private buildUrlKey(event: FightEvent): string {
