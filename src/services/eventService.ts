@@ -55,7 +55,9 @@ export class EventService {
       if (existingUrlKey && existingUrlKey !== urlKey) byUrl.set(existingUrlKey, merged);
 
       if (titleDateKey !== mergedTitleDateKey) byTitleDate.delete(titleDateKey);
-      if (existingTitleDateKey !== mergedTitleDateKey) byTitleDate.delete(existingTitleDateKey);
+      if (existingTitleDateKey !== mergedTitleDateKey && existingTitleDateKey !== titleDateKey) {
+        byTitleDate.delete(existingTitleDateKey);
+      }
       byTitleDate.set(mergedTitleDateKey, merged);
     });
 
