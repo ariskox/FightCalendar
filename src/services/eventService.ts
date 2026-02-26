@@ -51,8 +51,10 @@ export class EventService {
       const existingTitleDateKey = this.buildTitleDateKey(existing);
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
-      const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key !== "");
-      urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
+      if (urlKey || existingUrlKey) {
+        const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key !== "");
+        urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
+      }
 
       const keysToDelete = new Set([titleDateKey, existingTitleDateKey]);
       keysToDelete.delete(mergedTitleDateKey);
@@ -64,6 +66,7 @@ export class EventService {
   }
 
   private buildUrlKey(event: FightEvent): string {
+    if (!event.url) return "";
     const trimmed = event.url.trim();
     if (!trimmed) return "";
     try {
