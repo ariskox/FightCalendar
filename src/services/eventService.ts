@@ -52,7 +52,7 @@ export class EventService {
       const mergedTitleDateKey = this.buildTitleDateKey(merged);
 
       if (urlKey || existingUrlKey) {
-        const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key !== "");
+        const urlKeysToMerge = [urlKey, existingUrlKey].filter((key) => key);
         urlKeysToMerge.forEach((key) => byUrl.set(key, merged));
       }
 
@@ -71,8 +71,9 @@ export class EventService {
     if (!trimmed) return "";
     try {
       const parsed = new URL(trimmed);
-      const normalizedPath = this.normalizePath(parsed.pathname);
-      return `${parsed.origin.toLowerCase()}${normalizedPath}`.toLowerCase();
+      const normalizedOrigin = parsed.origin.toLowerCase();
+      const normalizedPath = this.normalizePath(parsed.pathname).toLowerCase();
+      return `${normalizedOrigin}${normalizedPath}`;
     } catch {
       return trimmed.toLowerCase();
     }
