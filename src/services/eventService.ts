@@ -29,25 +29,48 @@ export class EventService {
   }
 
   private dedupeEvents(events: FightEvent[]): FightEvent[] {
-    const map = new Map<string, FightEvent>();
+    const byUrl = new Map<string, FightEvent>();
+    const byTitleDate = new Map<string, FightEvent>();
 
     events.forEach((event) => {
-      const key = this.buildKey(event);
-      const existing = map.get(key);
+      const urlKey = this.buildUrlKey(event);
+      const titleDateKey = this.buildTitleDateKey(event);
+      const existing = (urlKey ? byUrl.get(urlKey) : undefined) ?? byTitleDate.get(titleDateKey);
       if (!existing) {
-        map.set(key, event);
+        if (urlKey) byUrl.set(urlKey, event);
+        byTitleDate.set(titleDateKey, event);
         return;
       }
 
-      map.set(key, this.pickLatest(existing, event));
+      const merged = this.pickLatest(existing, event);
+      const existingUrlKey = this.buildUrlKey(existing);
+      const existingTitleDateKey = this.buildTitleDateKey(existing);
+
+      if (urlKey) byUrl.set(urlKey, merged);
+      if (existingUrlKey) byUrl.set(existingUrlKey, merged);
+      byTitleDate.set(titleDateKey, merged);
+      byTitleDate.set(existingTitleDateKey, merged);
     });
 
-    return Array.from(map.values());
+    return Array.from(new Set(byTitleDate.values()));
   }
 
-  private buildKey(event: FightEvent): string {
-    if (event.url) return event.url.trim().toLowerCase();
-    return `${event.promotion}:${event.title.trim().toLowerCase()}`;
+  private buildUrlKey(event: FightEvent): string {
+    const trimmed = event.url.trim();
+    if (!trimmed) return "";
+    try {
+      const parsed = new URL(trimmed);
+      const normalizedPath = parsed.pathname.replace(/\/+$/, "") || "/";
+      return `${parsed.origin.toLowerCase()}${normalizedPath}`.toLowerCase();
+    } catch {
+      return trimmed.toLowerCase();
+    }
+  }
+
+  private buildTitleDateKey(event: FightEvent): string {
+    const normalizedTitle = event.title.trim().toLowerCase().replace(/\s+/g, " ");
+    const dateKey = event.startDate.toISOString().split("T")[0];
+    return `${event.promotion}:${normalizedTitle}:${dateKey}`;
   }
 
   private pickLatest(current: FightEvent, candidate: FightEvent): FightEvent {
