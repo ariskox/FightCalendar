@@ -2,6 +2,9 @@ import { PromotionFetcher, FightEvent, Logger, FetchOptions } from "../types.js"
 import { ProgressBar } from "../utils/progress.js";
 
 export class EventService {
+  private static readonly multipleSlashesPattern = /\/{2,}/g;
+  private static readonly trailingSlashPattern = /\/+$/;
+
   constructor(private readonly fetchers: PromotionFetcher[], private readonly logger: Logger) {}
 
   async collectEvents(options?: FetchOptions): Promise<{ events: FightEvent[]; counts: Record<string, number> }> {
@@ -29,25 +32,64 @@ export class EventService {
   }
 
   private dedupeEvents(events: FightEvent[]): FightEvent[] {
-    const map = new Map<string, FightEvent>();
+    const byUrl = new Map<string, FightEvent>();
+    const byTitleDate = new Map<string, FightEvent>();
 
     events.forEach((event) => {
-      const key = this.buildKey(event);
-      const existing = map.get(key);
+      const urlKey = this.buildUrlKey(event);
+      const titleDateKey = this.buildTitleDateKey(event);
+      const existingByUrl = urlKey ? byUrl.get(urlKey) : undefined;
+      const existing = existingByUrl ?? byTitleDate.get(titleDateKey);
       if (!existing) {
-        map.set(key, event);
+        if (urlKey) byUrl.set(urlKey, event);
+        byTitleDate.set(titleDateKey, event);
         return;
       }
 
-      map.set(key, this.pickLatest(existing, event));
+      const merged = this.pickLatest(existing, event);
+      const existingUrlKey = this.buildUrlKey(existing);
+      const mergedTitleDateKey = this.buildTitleDateKey(merged);
+      const existingTitleDateKey = existing === merged ? mergedTitleDateKey : this.buildTitleDateKey(existing);
+
+      if (urlKey) byUrl.set(urlKey, merged);
+      if (existingUrlKey && existingUrlKey !== urlKey) byUrl.set(existingUrlKey, merged);
+
+      const keysToDelete = titleDateKey === existingTitleDateKey ? [titleDateKey] : [titleDateKey, existingTitleDateKey];
+      keysToDelete.forEach((key) => {
+        if (key !== mergedTitleDateKey) byTitleDate.delete(key);
+      });
+      byTitleDate.set(mergedTitleDateKey, merged);
     });
 
-    return Array.from(map.values());
+    return Array.from(byTitleDate.values());
   }
 
-  private buildKey(event: FightEvent): string {
-    if (event.url) return event.url.trim().toLowerCase();
-    return `${event.promotion}:${event.title.trim().toLowerCase()}`;
+  private buildUrlKey(event: FightEvent): string {
+    if (!event.url) return "";
+    const trimmed = event.url.trim();
+    if (!trimmed) return "";
+    try {
+      const parsed = new URL(trimmed);
+      const normalizedOrigin = parsed.origin.toLowerCase();
+      const normalizedPath = this.normalizePath(parsed.pathname).toLowerCase();
+      return `${normalizedOrigin}${normalizedPath}`;
+    } catch {
+      return trimmed.toLowerCase();
+    }
+  }
+
+  private buildTitleDateKey(event: FightEvent): string {
+    const normalizedTitle = event.title.trim().toLowerCase().replace(/\s+/g, " ");
+    const dateKey = event.startDate.toISOString().split("T")[0];
+    return `${event.promotion}:${normalizedTitle}:${dateKey}`;
+  }
+
+  private normalizePath(pathname: string): string {
+    return (
+      pathname
+        .replace(EventService.multipleSlashesPattern, "/")
+        .replace(EventService.trailingSlashPattern, "") || "/"
+    );
   }
 
   private pickLatest(current: FightEvent, candidate: FightEvent): FightEvent {
