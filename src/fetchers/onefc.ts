@@ -7,6 +7,15 @@ export class OneFcFetcher implements PromotionFetcher {
 
   constructor(private readonly logger: Logger) {}
 
+  private isIgnoredEventUrl(url: string): boolean {
+    try {
+      const parsed = new URL(url);
+      return parsed.hostname.toLowerCase() === "watch.onefc.com";
+    } catch {
+      return false;
+    }
+  }
+
   async fetchUpcomingEvents(options?: FetchOptions): Promise<FightEvent[]> {
     const includePastEvents = Boolean(options?.includePastEvents);
     const pastEventsOnly = Boolean(options?.pastEventsOnly);
@@ -42,6 +51,7 @@ export class OneFcFetcher implements PromotionFetcher {
       const isPastEvent = startDate.getTime() < now;
       if (!includePastEvents && isPastEvent) return;
       if (pastEventsOnly && !isPastEvent) return;
+      if (this.isIgnoredEventUrl(url)) return;
       if (seen.has(url)) return;
 
       seen.add(url);
@@ -69,6 +79,7 @@ export class OneFcFetcher implements PromotionFetcher {
       const isPastEvent = startDate.getTime() < now;
       if (!includePastEvents && isPastEvent) return;
       if (pastEventsOnly && !isPastEvent) return;
+      if (this.isIgnoredEventUrl(url)) return;
       if (seen.has(url)) return;
 
       seen.add(url);
