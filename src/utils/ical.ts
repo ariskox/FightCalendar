@@ -73,6 +73,16 @@ const buildEventKey = (event: FightEvent): string => {
 
 type ParsedVevent = { key: string; dtstart?: string; raw: string };
 
+const isIgnoredCalendarUrl = (url: string | undefined): boolean => {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url.trim());
+    return parsed.hostname.toLowerCase() === "watch.onefc.com";
+  } catch {
+    return false;
+  }
+};
+
 const mergeWithExisting = async (outputPath: string, newEvents: ParsedVevent[]): Promise<ParsedVevent[]> => {
   const map = new Map<string, ParsedVevent>();
 
@@ -112,6 +122,8 @@ const extractVevents = (icsContent: string): ParsedVevent[] => {
       if (line.startsWith("DTSTART:")) dtstart = line.slice("DTSTART:".length);
       if (line.startsWith("UID:")) uid = line.slice("UID:".length);
     });
+
+    if (isIgnoredCalendarUrl(url)) return;
 
     const key = buildKeyFromParts({ url, summary, dtstart, uid });
     if (!key) return;
