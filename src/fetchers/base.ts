@@ -2,7 +2,7 @@ import { load, CheerioAPI } from "cheerio";
 import { request } from "undici";
 import { Logger } from "../types.js";
 
-export const fetchDocument = async (url: string, logger: Logger): Promise<CheerioAPI> => {
+export const fetchText = async (url: string, logger: Logger): Promise<string> => {
   logger.debug(`Fetching URL ${url}`);
   const response = await request(url, {
     headers: {
@@ -14,6 +14,10 @@ export const fetchDocument = async (url: string, logger: Logger): Promise<Cheeri
     throw new Error(`Failed to fetch ${url}: status ${response.statusCode}`);
   }
 
-  const body = await response.body.text();
+  return response.body.text();
+};
+
+export const fetchDocument = async (url: string, logger: Logger): Promise<CheerioAPI> => {
+  const body = await fetchText(url, logger);
   return load(body);
 };

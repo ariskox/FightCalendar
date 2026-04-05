@@ -5,6 +5,7 @@ export interface FightEvent {
   title: string;
   url: string;
   startDate: Date;
+  endDate?: Date;
   location?: string;
   cardBouts?: Bout[];
 }
@@ -16,7 +17,7 @@ export interface Bout {
   boutOrder?: number;
 }
 
-export type PromotionName = "ufc" | "oktagon" | "one";
+export type PromotionName = "ufc" | "oktagon" | "one" | "grmmaf";
 
 export interface FetchOptions {
   includePastEvents?: boolean;
