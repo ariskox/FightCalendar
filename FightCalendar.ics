@@ -59,6 +59,7 @@ BEGIN:VEVENT
 
 
 
+
 UID:https://oktagonmma.com/en/events/oktagon-84-ostrava
 SUMMARY:OKTAGON 84: PARADEISER vs. BRITO
 DTSTAMP:20260214T052233Z
@@ -122,8 +123,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -225,8 +228,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -308,8 +313,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -377,8 +384,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -446,8 +455,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -501,8 +512,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -542,8 +555,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -569,12 +584,13 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-86-szczecin
 SUMMARY:OKTAGON 86: MATERLA VS. JUNGWIRTH
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260411T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Enea Arena\, Szczecin\, PL
 URL:https://oktagonmma.com/en/events/oktagon-86-szczecin
@@ -587,7 +603,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-87-liberec
 SUMMARY:OKTAGON 87: SZABOVÁ VS. FERNANDES
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260425T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Home Credit Arena\, Liberec\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-87-liberec
@@ -600,7 +616,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-88-hannover
 SUMMARY:OKTAGON 88: MACHAEV VS. PALOKAJ
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260516T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: ZAG Arena\, Hannover\, DE
 URL:https://oktagonmma.com/en/events/oktagon-88-hannover
@@ -613,7 +629,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-fight-night-may-30-2026
 SUMMARY:[UFC] Song vs Figueiredo
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260530T110000Z
 DESCRIPTION:Promotion: ufc\nLocation: Galaxy Arena\n\n\n      \n            Macao
 URL:https://www.ufc.com/event/ufc-fight-night-may-30-2026
@@ -626,7 +642,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-89-bratislava
 SUMMARY:OKTAGON 89: Bratislava
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260606T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: TIPOS ARÉNA\, Bratislava\, SK
 URL:https://oktagonmma.com/en/events/oktagon-89-bratislava
@@ -639,7 +655,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-90-berlin
 SUMMARY:OKTAGON 90: Berlin
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260620T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Uber Arena\, Berlin\, DE
 URL:https://oktagonmma.com/en/events/oktagon-90-berlin
@@ -652,7 +668,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-91-cologne
 SUMMARY:OKTAGON 91: ENGIZEK VS. JOTKO 2
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260711T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Lanxess Arena\, Köln\, DE
 URL:https://oktagonmma.com/en/events/oktagon-91-cologne
@@ -665,7 +681,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-92-prague
 SUMMARY:OKTAGON 92: Prague
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260801T163000Z
 DESCRIPTION:Promotion: oktagon\nLocation: ostrov Štvanice\, Hlavní město Praha\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-92-prague
@@ -678,7 +694,7 @@ BEGIN:VEVENT
 
 UID:https://oktagonmma.com/en/events/oktagon-94-frankfurt
 SUMMARY:OKTAGON 94: Frankfurt
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260926T150000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Deutsche Bank Park\, Frankfurt am Main\, DE
 URL:https://oktagonmma.com/en/events/oktagon-94-frankfurt
@@ -688,6 +704,7 @@ DURATION:PT3H
 
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -757,8 +774,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -874,8 +893,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -991,8 +1012,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1108,8 +1131,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1225,8 +1250,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1342,8 +1369,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1459,8 +1488,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1576,8 +1607,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1693,8 +1726,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1810,8 +1845,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -1927,8 +1964,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2044,8 +2083,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2161,8 +2202,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2278,8 +2321,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2395,8 +2440,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2512,8 +2559,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2629,8 +2678,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2746,8 +2797,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2863,8 +2916,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -2980,8 +3035,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3097,8 +3154,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3214,8 +3273,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3331,8 +3392,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3448,8 +3511,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3565,8 +3630,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3682,8 +3749,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3798,8 +3867,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -3915,8 +3986,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4032,8 +4105,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4148,8 +4223,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4264,8 +4341,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4381,8 +4460,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4497,8 +4578,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4614,8 +4697,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4730,8 +4815,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4847,8 +4934,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -4964,8 +5053,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5080,8 +5171,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5197,8 +5290,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5313,8 +5408,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5429,8 +5526,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5546,8 +5645,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5662,8 +5763,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5779,8 +5882,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -5896,8 +6001,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6012,8 +6119,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6129,8 +6238,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6245,8 +6356,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6361,8 +6474,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6466,8 +6581,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6557,8 +6674,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6628,8 +6747,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6685,8 +6806,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6742,8 +6865,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6785,8 +6910,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6814,8 +6941,10 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6854,12 +6983,13 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight42/
 SUMMARY:ONE Fight Night 42: Mann vs. Dzhabrailov on Prime Video
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260411T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight42/
@@ -6869,6 +6999,7 @@ DURATION:PT3H
 
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -6976,12 +7107,13 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight43/
 SUMMARY:ONE Fight Night 43: Tang vs. Gasanov on Prime Video
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260516T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight43/
@@ -6991,6 +7123,7 @@ DURATION:PT3H
 
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 
@@ -7018,12 +7151,13 @@ DURATION:PT3H
 
 
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight44/
 SUMMARY:ONE Fight Night 44
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260711T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight44/
@@ -7036,7 +7170,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight45/
 SUMMARY:ONE Fight Night 45
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260808T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight45/
@@ -7049,7 +7183,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight46/
 SUMMARY:ONE Fight Night 46
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260905T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight46/
@@ -7062,7 +7196,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight47/
 SUMMARY:ONE Fight Night 47
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20261003T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight47/
@@ -7075,7 +7209,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight48/
 SUMMARY:ONE Fight Night 48
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20261107T020000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight48/
@@ -7088,7 +7222,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/onefightnight49/
 SUMMARY:ONE Fight Night 49
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20261212T020000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight49/
@@ -7101,7 +7235,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-samurai-1/
 SUMMARY:ONE SAMURAI 1
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260429T050000Z
 DESCRIPTION:Promotion: one\nLocation: Ariake Arena\, Tokyo
 URL:https://www.onefc.com/events/one-samurai-1/
@@ -7114,7 +7248,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-fight-night-april-18-2026
 SUMMARY:[UFC] Burns vs Malott
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260419T000000Z
 DESCRIPTION:Promotion: ufc\nLocation: Canada Life Centre\n\n\n      \n            Winnipeg MB\nCanada
 URL:https://www.ufc.com/event/ufc-fight-night-april-18-2026
@@ -7124,6 +7258,7 @@ DURATION:PT3H
 
 END:VEVENT
 BEGIN:VEVENT
+
 
 UID:https://www.ufc.com/event/ufc-fight-night-april-04-2026
 SUMMARY:[UFC] Moicano vs Duncan
@@ -7135,12 +7270,13 @@ LOCATION:Meta APEX\n\n\n      \n            Las Vegas\, NV\nUnited States
 STATUS:CONFIRMED
 DURATION:PT3H
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-327
 SUMMARY:[UFC] Prochazka vs Ulberg
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260412T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Kaseya Center\n\n\n      \n            Miami\, FL\nUnited States
 URL:https://www.ufc.com/event/ufc-327
@@ -7153,7 +7289,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-fight-night-april-25-2026
 SUMMARY:[UFC] Sterling vs Zalal
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260426T000000Z
 DESCRIPTION:Promotion: ufc\nLocation: Meta APEX\n\n\n      \n            Las Vegas\, NV\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-april-25-2026
@@ -7166,7 +7302,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-fight-night-may-02-2026
 SUMMARY:[UFC] Della Maddalena vs Prates
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260502T110000Z
 DESCRIPTION:Promotion: ufc\nLocation: RAC Arena\n\n\n      \n            Perth WA\nAustralia
 URL:https://www.ufc.com/event/ufc-fight-night-may-02-2026
@@ -7179,7 +7315,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-328
 SUMMARY:[UFC] Chimaev vs Strickland
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260510T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Prudential Center\n\n\n      \n            Newark\, NJ\nUnited States
 URL:https://www.ufc.com/event/ufc-328
@@ -7189,6 +7325,7 @@ DURATION:PT3H
 
 END:VEVENT
 BEGIN:VEVENT
+
 
 
 UID:https://www.onefc.com/events/one-friday-fights-149/
@@ -7202,12 +7339,13 @@ STATUS:CONFIRMED
 DURATION:PT3H
 
 
+
 END:VEVENT
 BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-150/
 SUMMARY:ONE Friday Fights 150 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260410T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-150/
@@ -7220,7 +7358,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-151/
 SUMMARY:ONE Friday Fights 151 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260424T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-151/
@@ -7233,7 +7371,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-152/
 SUMMARY:ONE Friday Fights 152 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260501T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-152/
@@ -7246,7 +7384,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-153/
 SUMMARY:ONE Friday Fights 153 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260508T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-153/
@@ -7259,7 +7397,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-154/
 SUMMARY:ONE Friday Fights 154 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260515T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-154/
@@ -7272,7 +7410,7 @@ BEGIN:VEVENT
 
 UID:https://www.ufc.com/event/ufc-fight-night-may-16-2026
 SUMMARY:[UFC] Allen vs Costa
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260517T000000Z
 DESCRIPTION:Promotion: ufc\nLocation: Meta APEX\n\n\n      \n            Las Vegas\, NV\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-may-16-2026
@@ -7285,7 +7423,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-155/
 SUMMARY:ONE Friday Fights 155 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260522T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-155/
@@ -7298,7 +7436,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-156/
 SUMMARY:ONE Friday Fights 156 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260529T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-156/
@@ -7311,7 +7449,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-157/
 SUMMARY:ONE Friday Fights 157 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260605T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-157/
@@ -7324,7 +7462,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-158/
 SUMMARY:ONE Friday Fights 158 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260612T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-158/
@@ -7337,7 +7475,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-159/
 SUMMARY:ONE Friday Fights 159 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260619T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-159/
@@ -7350,7 +7488,7 @@ BEGIN:VEVENT
 
 UID:https://www.onefc.com/events/one-friday-fights-160/
 SUMMARY:ONE Friday Fights 160 & The Inner Circle
-DTSTAMP:20260404T052956Z
+DTSTAMP:20260405T053634Z
 DTSTART:20260626T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-160/
