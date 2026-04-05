@@ -65,7 +65,7 @@ program
   )
   .option("-p, --include-past", "Include past events in the generated calendar", false)
   .option("--past-only", "Include only past events in the generated calendar", false)
-  .option("-l, --log-level <level>", "Log level (fatal|error|warn|info|debug|trace|silent)", process.env.LOG_LEVEL ?? "error")
+  .option("-l, --log-level <level>", "Log level (fatal|error|warn|info|debug|trace|silent)", process.env.LOG_LEVEL ?? "warn")
   .showHelpAfterError();
 
 const run = async () => {
