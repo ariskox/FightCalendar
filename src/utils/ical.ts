@@ -114,7 +114,15 @@ const extractVevents = (icsContent: string): ParsedVevent[] => {
   const collected: ParsedVevent[] = [];
 
   parts.forEach((part) => {
-    const vevent = `BEGIN:VEVENT\n${part.split("END:VEVENT")[0]}\nEND:VEVENT`;
+    const eventBlock = part
+      .split("END:VEVENT")[0]
+      .replace(/^\s*\n+/, "")
+      .replace(/\n+\s*$/, "")
+      .split("\n")
+      .map((line) => line.trimEnd())
+      .filter((line) => line.trim() !== "")
+      .join("\n");
+    const vevent = `BEGIN:VEVENT\n${eventBlock}\nEND:VEVENT`;
     const lines = vevent.split(/\n/).map((line) => line.trim());
     let summary: string | undefined;
     let url: string | undefined;
