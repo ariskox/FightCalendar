@@ -45,13 +45,13 @@ export class GrMmafFetcher implements PromotionFetcher {
   async fetchUpcomingEvents(options?: FetchOptions): Promise<FightEvent[]> {
     const includePastEvents = Boolean(options?.includePastEvents);
     const pastEventsOnly = Boolean(options?.pastEventsOnly);
-    const token = process.env.GITHUB_MODELS_TOKEN ?? process.env.GITHUB_TOKEN;
+    const token = process.env.FC_MODELS_TOKEN;
 
     this.logger.debug("GR MMAF fetch starting", {
       includePastEvents,
       pastEventsOnly,
-      model: process.env.GITHUB_MODELS_MODEL ?? DEFAULT_MODEL,
-      endpoint: process.env.GITHUB_MODELS_ENDPOINT ?? DEFAULT_MODELS_ENDPOINT,
+      model: process.env.FC_MODELS_MODEL ?? DEFAULT_MODEL,
+      endpoint: process.env.FC_MODELS_ENDPOINT ?? DEFAULT_MODELS_ENDPOINT,
       feedPageLimit: parsePositiveInt(process.env.GRMMAF_FEED_PAGE_LIMIT, DEFAULT_FEED_PAGE_LIMIT),
       maxLatestArticles: parsePositiveInt(process.env.GRMMAF_MAX_LATEST_ARTICLES, DEFAULT_MAX_LATEST_ARTICLES),
       maxArticleChars: parsePositiveInt(process.env.GRMMAF_ARTICLE_MAX_CHARS, DEFAULT_MAX_ARTICLE_CHARS),
@@ -59,7 +59,7 @@ export class GrMmafFetcher implements PromotionFetcher {
     });
 
     if (!token) {
-      this.logger.warn("Skipping GR MMAF fetcher because GITHUB_MODELS_TOKEN/GITHUB_TOKEN is not set");
+      this.logger.warn("Skipping GR MMAF fetcher because FC_MODELS_TOKEN is not set");
       return [];
     }
 
@@ -225,8 +225,8 @@ export class GrMmafFetcher implements PromotionFetcher {
   }
 
   private async classifyArticle(item: FeedItem, token: string): Promise<LlmEventClassification | null> {
-    const endpoint = process.env.GITHUB_MODELS_ENDPOINT ?? DEFAULT_MODELS_ENDPOINT;
-    const model = process.env.GITHUB_MODELS_MODEL ?? DEFAULT_MODEL;
+    const endpoint = process.env.FC_MODELS_ENDPOINT ?? DEFAULT_MODELS_ENDPOINT;
+    const model = process.env.FC_MODELS_MODEL ?? DEFAULT_MODEL;
     const maxChars = parsePositiveInt(process.env.GRMMAF_ARTICLE_MAX_CHARS, DEFAULT_MAX_ARTICLE_CHARS);
 
     const articleText = clipText(`${item.summary}\n\n${item.content}`, maxChars);
