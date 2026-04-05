@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      FC_MODELS_TOKEN: ${{ secrets.FC_MODELS_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ics
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -36,12 +37,20 @@ jobs:
           pnpm build
           node dist/cli.js --output FightCalendar.ics
 
+      - name: Checkout ics branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ics
+          path: ics-branch
+
       - name: Prepare ics branch
         id: commit
         run: |
+          cp FightCalendar.ics ics-branch/FightCalendar.ics
+          cd ics-branch
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -B ics
           git add FightCalendar.ics
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -52,4 +61,6 @@ jobs:
 
       - name: Push updates
         if: steps.commit.outputs.changed == 'true'
-        run: git push origin ics
+        run: |
+          cd ics-branch
+          git push origin HEAD:ics
