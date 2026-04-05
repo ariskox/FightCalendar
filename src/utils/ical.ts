@@ -5,26 +5,26 @@ import { FightEvent } from "../types.js";
 
 export const writeIcsFile = async (events: FightEvent[], outputPath: string): Promise<void> => {
   const icsEvents: EventAttributes[] = events.map((event) => {
-    const startDate = event.startDate;
-    const start: [number, number, number, number, number] = [
-      startDate.getFullYear(),
-      startDate.getMonth() + 1,
-      startDate.getDate(),
-      startDate.getHours(),
-      startDate.getMinutes()
-    ];
+    const start = toIcsDate(event.startDate);
+    const hasValidEndDate = Boolean(event.endDate && event.endDate.getTime() > event.startDate.getTime());
+    const end = hasValidEndDate && event.endDate ? toIcsDate(event.endDate) : undefined;
 
-    return {
+    const base = {
       title: formatTitle(event),
       description: buildDescription(event),
       url: event.url,
       start,
-      duration: { hours: 3 },
       location: event.location ?? "",
       status: "CONFIRMED" as EventStatus,
       productId: "fight-calendar-cli",
       uid: buildEventKey(event)
     };
+
+    if (hasValidEndDate && end) {
+      return { ...base, end };
+    }
+
+    return { ...base, duration: { hours: 3 } };
   });
 
   const { error, value } = createEvents(icsEvents);
@@ -58,6 +58,10 @@ const formatTitle = (event: FightEvent): string => {
     return `[UFC] ${event.title}`;
   }
   return event.title;
+};
+
+const toIcsDate = (date: Date): [number, number, number, number, number] => {
+  return [date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes()];
 };
 
 const normalizeSummary = (summary: string | undefined): string => {
