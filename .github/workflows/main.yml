@@ -32,11 +32,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build and generate ICS
-        run: |
-          pnpm build
-          node dist/cli.js --output FightCalendar.ics
-
       - name: Checkout ics branch
         uses: actions/checkout@v4
         with:
@@ -44,10 +39,14 @@ jobs:
           ref: ics
           path: ics-branch
 
+      - name: Build and generate ICS
+        run: |
+          pnpm build
+          node dist/cli.js --output ics-branch/FightCalendar.ics
+
       - name: Prepare ics branch
         id: commit
         run: |
-          cp FightCalendar.ics ics-branch/FightCalendar.ics
           cd ics-branch
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
