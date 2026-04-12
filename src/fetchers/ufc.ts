@@ -32,11 +32,13 @@ export class UfcFetcher implements PromotionFetcher {
 
     $("article.c-card-event--result").each((_, element) => {
       const container = $(element);
+      const href = container.find("a.c-card-event--result__link, h3.c-card-event--result__headline a").attr("href") ?? "";
+      const url = `https://www.ufc.com${href}`;
       const rawTitle = container.find("h3.c-card-event--result__headline").text().trim();
       const headlinePrefix = container.find(".c-card-event--result__headline-prefix").first().text().trim();
-      const ufcNumber = extractUfcNumber(headlinePrefix, rawTitle);
+      const cardText = container.text().replace(/\s+/g, " ").trim();
+      const ufcNumber = extractUfcNumber(headlinePrefix, rawTitle, url, cardText);
       const title = formatUfcTitle(rawTitle, ufcNumber);
-      const url = `https://www.ufc.com${container.find("a.c-card-event--result__link, h3.c-card-event--result__headline a").attr("href") ?? ""}`;
 
       const dateNode = container.find("div.c-card-event--result__date");
       const timestamp = parseTimestamp(dateNode.attr("data-main-card-timestamp") ?? dateNode.attr("data-prelims-card-timestamp"));
@@ -95,16 +97,22 @@ const parseTimestamp = (value?: string | null): Date | null => {
   return new Date(asNumber * 1000);
 };
 
+const UFC_NUMBER_CAPTURE_GROUP = "(\\d{1,4})";
+const UFC_NUMBER_IN_TEXT_REGEX = new RegExp(`\\bUFC[\\s\\-_/]*${UFC_NUMBER_CAPTURE_GROUP}\\b`, "i");
+const UFC_NUMBER_IN_URL_REGEX = new RegExp(`/ufc-${UFC_NUMBER_CAPTURE_GROUP}(?:[/?#-]|$)`, "i");
+
 const extractUfcNumber = (...values: string[]): string | undefined => {
   for (const value of values) {
-    const match = value.match(/\bUFC\s*(\d{1,4})\b/i);
+    const match = value.match(UFC_NUMBER_IN_TEXT_REGEX);
     if (match) return `UFC ${match[1]}`;
+    const urlMatch = value.match(UFC_NUMBER_IN_URL_REGEX);
+    if (urlMatch) return `UFC ${urlMatch[1]}`;
   }
   return undefined;
 };
 
 const formatUfcTitle = (title: string, ufcNumber?: string): string => {
   if (!ufcNumber) return title;
-  if (/\bUFC\s*\d{1,4}\b/i.test(title)) return title;
+  if (UFC_NUMBER_IN_TEXT_REGEX.test(title)) return title;
   return `${ufcNumber}: ${title}`;
 };
