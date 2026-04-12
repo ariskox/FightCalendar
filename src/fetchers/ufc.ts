@@ -32,7 +32,10 @@ export class UfcFetcher implements PromotionFetcher {
 
     $("article.c-card-event--result").each((_, element) => {
       const container = $(element);
-      const title = container.find("h3.c-card-event--result__headline").text().trim();
+      const rawTitle = container.find("h3.c-card-event--result__headline").text().trim();
+      const headlinePrefix = container.find(".c-card-event--result__headline-prefix").first().text().trim();
+      const ufcNumber = extractUfcNumber(headlinePrefix, rawTitle);
+      const title = formatUfcTitle(rawTitle, ufcNumber);
       const url = `https://www.ufc.com${container.find("a.c-card-event--result__link, h3.c-card-event--result__headline a").attr("href") ?? ""}`;
 
       const dateNode = container.find("div.c-card-event--result__date");
@@ -90,4 +93,18 @@ const parseTimestamp = (value?: string | null): Date | null => {
   const asNumber = Number.parseInt(value, 10);
   if (Number.isNaN(asNumber)) return null;
   return new Date(asNumber * 1000);
+};
+
+const extractUfcNumber = (...values: string[]): string | undefined => {
+  for (const value of values) {
+    const match = value.match(/\bUFC\s*(\d{1,4})\b/i);
+    if (match) return `UFC ${match[1]}`;
+  }
+  return undefined;
+};
+
+const formatUfcTitle = (title: string, ufcNumber?: string): string => {
+  if (!ufcNumber) return title;
+  if (/\bUFC\s*\d{1,4}\b/i.test(title)) return title;
+  return `${ufcNumber}: ${title}`;
 };
