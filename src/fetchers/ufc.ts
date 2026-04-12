@@ -38,6 +38,7 @@ export class UfcFetcher implements PromotionFetcher {
       const headlinePrefix = container.find(".c-card-event--result__headline-prefix").first().text().trim();
       const cardText = container.text().replace(/\s+/g, " ").trim();
       const ufcNumber = extractUfcNumber(headlinePrefix, rawTitle, url, cardText);
+      this.logger.debug(`[UFC] Parsing event: ${rawTitle} url: ${url} headlinePrefix: ${headlinePrefix} , cardText: ${cardText} extracted ufcNumber: ${ufcNumber}`);
       const title = formatUfcTitle(rawTitle, ufcNumber);
 
       const dateNode = container.find("div.c-card-event--result__date");
@@ -60,6 +61,7 @@ export class UfcFetcher implements PromotionFetcher {
       }
 
       const cardBouts = extractBouts(container);
+      this.logger.debug(`[UFC] Fetched event: ${title} ufcNumber: ${ufcNumber} date: ${startDate.toISOString()} location: ${location} bouts: ${cardBouts.length}`);
       events.push({ promotion: this.name, title, url, startDate, location: location || undefined, cardBouts });
     });
 
@@ -97,9 +99,10 @@ const parseTimestamp = (value?: string | null): Date | null => {
   return new Date(asNumber * 1000);
 };
 
-const UFC_NUMBER_CAPTURE_GROUP = "(\\d{1,4})";
+const UFC_NUMBER_CAPTURE_GROUP = "(\\d{1,3})";
 const UFC_NUMBER_IN_TEXT_REGEX = new RegExp(`\\bUFC[\\s\\-_/]*${UFC_NUMBER_CAPTURE_GROUP}\\b`, "i");
-const UFC_NUMBER_IN_URL_REGEX = new RegExp(`/ufc-${UFC_NUMBER_CAPTURE_GROUP}(?:[/?#-]|$)`, "i");
+const UFC_NUMBER_IN_URL_REGEX = new RegExp(`/event/ufc-${UFC_NUMBER_CAPTURE_GROUP}(?:[/?#-]|$)`, "i");
+const UFC_NUMBER_IN_SPECIAL_URL_REGEX = new RegExp(`/event/ufc-(?!fight-night)(?:[a-z0-9]+-)*${UFC_NUMBER_CAPTURE_GROUP}(?:[/?#]|$)`, "i");
 
 const extractUfcNumber = (...values: string[]): string | undefined => {
   for (const value of values) {
@@ -107,6 +110,8 @@ const extractUfcNumber = (...values: string[]): string | undefined => {
     if (match) return `UFC ${match[1]}`;
     const urlMatch = value.match(UFC_NUMBER_IN_URL_REGEX);
     if (urlMatch) return `UFC ${urlMatch[1]}`;
+    const specialUrlMatch = value.match(UFC_NUMBER_IN_SPECIAL_URL_REGEX);
+    if (specialUrlMatch) return `UFC ${specialUrlMatch[1]}`;
   }
   return undefined;
 };
