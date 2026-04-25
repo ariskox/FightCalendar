@@ -17,7 +17,7 @@ export interface Bout {
   boutOrder?: number;
 }
 
-export type PromotionName = "ufc" | "oktagon" | "one" | "grmmaf";
+export type PromotionName = "ufc" | "oktagon" | "one" | "grmmaf" | "questfl";
 
 export interface FetchOptions {
   includePastEvents?: boolean;
