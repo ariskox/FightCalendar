@@ -19,15 +19,15 @@ export class QuestFlFetcher implements PromotionFetcher {
     const events: FightEvent[] = [];
     const now = Date.now();
 
-    $("ul.fcListing li.fcEvent, ul.fcListing li").each((_, el) => {
+    $(".fcListing table tbody tr").each((_, el) => {
       const item = $(el);
 
-      const nameEl = item.find("a.name").first();
+      const nameEl = item.find("td").first().find("a").first();
       const title = nameEl.text().trim();
       const href = nameEl.attr("href") ?? "";
       const url = href ? (href.startsWith("http") ? href : `${BASE_URL}${href}`) : PROMOTION_URL;
 
-      const dateText = item.find("span.date, div.date, .date").first().text().trim();
+      const dateText = item.find("td").eq(1).text().trim();
       const startDate = parseDate(dateText);
 
       if (!title || !startDate) {
@@ -35,7 +35,7 @@ export class QuestFlFetcher implements PromotionFetcher {
         return;
       }
 
-      const location = item.find("span.location, div.location, .location").first().text().trim() || undefined;
+      const location = item.find("td").eq(2).text().trim() || undefined;
       const isPastEvent = startDate.getTime() < now;
 
       if (pastEventsOnly && !isPastEvent) return;
