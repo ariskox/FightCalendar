@@ -1,6 +1,6 @@
 ## Fight Calendar CLI
 
-Generate an iCal file with fight events from UFC, OKTAGON MMA, ONE FC, and GR MMAF.
+Generate an iCal file with fight events from UFC, OKTAGON MMA, ONE FC, GR MMAF, and QFL.
 
 Use this link to subscribe directly. Daily updates.<br>
 [Fight Calendar](https://ariskox.github.io/FightCalendar/)
@@ -23,7 +23,7 @@ node dist/cli.js --output fight_calendar.ics
 Options:
 
 - `-o, --output <file>`: Path to the output `.ics` file (default: `events.ics`)
-- `--promotions <list>`: Comma-separated promotions (`ufc,oktagon,one,grmmaf`) or `all` (default: `all`, alias: `grmma`)
+- `--promotions <list>`: Comma-separated promotions (`ufc,oktagon,one,grmmaf,questfl`) or `all` (default: `all`, aliases: `grmma`, `qfl`)
 - `-p, --include-past`: Include past events in addition to upcoming ones
 - `--past-only`: Include only past events (implies `--include-past`)
 - `-l, --log-level <level>`: `fatal|error|warn|info|debug|trace|silent` (default: `error`)
@@ -32,6 +32,12 @@ Example selecting only GR MMAF:
 
 ```bash
 node dist/cli.js --promotions grmma
+```
+
+Example selecting only QFL:
+
+```bash
+node dist/cli.js --promotions qfl
 ```
 
 Example including past events:

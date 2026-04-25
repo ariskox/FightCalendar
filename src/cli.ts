@@ -7,6 +7,7 @@ import { UfcFetcher } from "./fetchers/ufc.js";
 import { OktagonFetcher } from "./fetchers/oktagon.js";
 import { OneFcFetcher } from "./fetchers/onefc.js";
 import { GrMmafFetcher } from "./fetchers/grmmaf.js";
+import { QuestFlFetcher } from "./fetchers/questfl.js";
 import { EventService } from "./services/eventService.js";
 import { writeIcsFile } from "./utils/ical.js";
 
@@ -17,7 +18,9 @@ const aliases: Record<string, PromotionName> = {
   oktagon: "oktagon",
   one: "one",
   grmma: "grmmaf",
-  grmmaf: "grmmaf"
+  grmmaf: "grmmaf",
+  qfl: "questfl",
+  questfl: "questfl"
 };
 
 const parsePromotions = (input: string): Set<PromotionName> => {
@@ -27,7 +30,7 @@ const parsePromotions = (input: string): Set<PromotionName> => {
     .filter(Boolean);
 
   if (!normalized.length || normalized.includes("all")) {
-    return new Set<PromotionName>(["ufc", "oktagon", "one", "grmmaf"]);
+    return new Set<PromotionName>(["ufc", "oktagon", "one", "grmmaf", "questfl"]);
   }
 
   const selected = new Set<PromotionName>();
@@ -44,7 +47,7 @@ const parsePromotions = (input: string): Set<PromotionName> => {
 
   if (invalid.size) {
     const values = Array.from(invalid.values()).join(", ");
-    throw new Error(`Unknown promotions: ${values}. Allowed: all, ufc, oktagon, one, grmmaf (alias: grmma)`);
+    throw new Error(`Unknown promotions: ${values}. Allowed: all, ufc, oktagon, one, grmmaf (alias: grmma), questfl (alias: qfl)`);
   }
 
   if (!selected.size) {
@@ -56,11 +59,11 @@ const parsePromotions = (input: string): Set<PromotionName> => {
 
 program
   .name("fight-calendar")
-  .description("Generate an iCal file with upcoming fight events (UFC, OKTAGON MMA, ONE FC, GR MMAF)")
+  .description("Generate an iCal file with upcoming fight events (UFC, OKTAGON MMA, ONE FC, GR MMAF, QFL)")
   .option("-o, --output <file>", "Output .ics file path", "events.ics")
   .option(
     "--promotions <list>",
-    "Comma-separated promotions to fetch (ufc,oktagon,one,grmmaf). Use 'all' for all promotions.",
+    "Comma-separated promotions to fetch (ufc,oktagon,one,grmmaf,questfl). Use 'all' for all promotions.",
     "all"
   )
   .option("-p, --include-past", "Include past events in the generated calendar", false)
@@ -73,7 +76,7 @@ const run = async () => {
   const outputPath = resolve(process.cwd(), opts.output);
   const logger = createLogger(opts.logLevel);
 
-  const allFetchers: PromotionFetcher[] = [new UfcFetcher(logger), new OktagonFetcher(logger), new OneFcFetcher(logger), new GrMmafFetcher(logger)];
+  const allFetchers: PromotionFetcher[] = [new UfcFetcher(logger), new OktagonFetcher(logger), new OneFcFetcher(logger), new GrMmafFetcher(logger), new QuestFlFetcher(logger)];
   const selectedPromotions = parsePromotions(opts.promotions);
   const fetchers = allFetchers.filter((fetcher) => selectedPromotions.has(fetcher.name));
 
