@@ -183,7 +183,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-94-frankfurt
 SUMMARY:OKTAGON 94: ECKERLIN VS. KOZMA
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260926T150000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Deutsche Bank Park\, Frankfurt am Main\, DE
 URL:https://oktagonmma.com/en/events/oktagon-94-frankfurt
@@ -885,7 +885,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/onefightnight47/
 SUMMARY:ONE Fight Night 47
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260905T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight47/
@@ -896,7 +896,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/onefightnight48/
 SUMMARY:ONE Fight Night 48: Erdogan vs. Elliott on Prime Video
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261003T010000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight48/
@@ -907,7 +907,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/onefightnight49/
 SUMMARY:ONE Fight Night 49
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261107T020000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight49/
@@ -1160,7 +1160,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/onefightnight50/
 SUMMARY:ONE Fight Night 50
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261212T020000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight50/
@@ -1204,7 +1204,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-93-brno
 SUMMARY:OKTAGON 93: ROUŠAL vs. MÅGÅRD
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260912T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Winning Group Arena\, Brno-město\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-93-brno
@@ -1270,7 +1270,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-96-munich
 SUMMARY:OKTAGON 96: GOGOLADZE VS. KLINKHAMMER
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261031T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: SAP Garden\, München\, DE
 URL:https://oktagonmma.com/en/events/oktagon-96-munich
@@ -1369,7 +1369,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-168/
 SUMMARY:ONE Friday Fights 168 & The Inner Circle 28
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260828T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-168/
@@ -1380,7 +1380,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-169/
 SUMMARY:ONE Friday Fights 169 & The Inner Circle 29
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260904T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-169/
@@ -1391,7 +1391,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-170/
 SUMMARY:ONE Friday Fights 170 & The Inner Circle 30
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260911T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-170/
@@ -1402,7 +1402,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-171/
 SUMMARY:ONE Friday Fights 171 & The Inner Circle 31
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260918T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-171/
@@ -1413,7 +1413,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-172/
 SUMMARY:ONE Friday Fights 172 & The Inner Circle 32
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260925T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-172/
@@ -1446,7 +1446,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-95-karlovy-vary
 SUMMARY:OKTAGON 95: KINCL VS. HUMBURGER
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261017T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Mattoni Arena\, Karlovy Vary\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-95-karlovy-vary
@@ -1457,7 +1457,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-bratislava-2027
 SUMMARY:OKTAGON: Bratislava 2027
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20270501T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Zimní stadion Ondřeje Nepely\, Bratislava\, SK
 URL:https://oktagonmma.com/en/events/oktagon-bratislava-2027
@@ -1479,7 +1479,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-samurai-3/
 SUMMARY:ONE SAMURAI 3
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260912T083000Z
 DESCRIPTION:Promotion: one\nLocation: Yokohama Buntai\, Yokohama
 URL:https://www.onefc.com/events/one-samurai-3/
@@ -1501,7 +1501,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-september-05-2026
 SUMMARY:[UFC] Hooker vs Parnasse
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260905T190000Z
 DESCRIPTION:Promotion: ufc\nLocation: Accor Arena\n\n\n      \n            Paris\nFrance
 URL:https://www.ufc.com/event/ufc-fight-night-september-05-2026
@@ -1512,7 +1512,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-august-29-2026
 SUMMARY:[UFC] Nurmagomedov vs Song
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260829T100000Z
 DESCRIPTION:Promotion: ufc\nLocation: Oriental Sports Center\n\n\n      \n            Pudong District\nChina
 URL:https://www.ufc.com/event/ufc-fight-night-august-29-2026
@@ -1534,7 +1534,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-samurai-4/
 SUMMARY:ONE SAMURAI 4
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261017T070000Z
 DESCRIPTION:Promotion: one\nLocation: Ariake Arena\, Tokyo
 URL:https://www.onefc.com/events/one-samurai-4/
@@ -1567,7 +1567,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-vienna-2027
 SUMMARY:OKTAGON: VIENNA 2027
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20270101T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Friedrich-Schmidt-Platz 1\, Wien\, AT
 URL:https://oktagonmma.com/en/events/oktagon-vienna-2027
@@ -1589,7 +1589,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-97-hannover
 SUMMARY:OKTAGON 97: SEVERINO VS. HOLZER
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261107T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: ZAG Arena\, Hannover\, DE
 URL:https://oktagonmma.com/en/events/oktagon-97-hannover
@@ -1600,7 +1600,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-stuttgart-2027
 SUMMARY:OKTAGON: Stuttgart 2027
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20270116T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Hanns-Martin-Schleyer-Halle\, Stuttgart\, DE
 URL:https://oktagonmma.com/en/events/oktagon-stuttgart-2027
@@ -1622,7 +1622,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-99-dortmund
 SUMMARY:OKTAGON 99: Dortmund
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261205T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Westfalenhalle\, Dortmund\, DE
 URL:https://oktagonmma.com/en/events/oktagon-99-dortmund
@@ -1633,7 +1633,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-september-12-2026
 SUMMARY:[UFC] Silva vs Delgado
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260912T210000Z
 DESCRIPTION:Promotion: ufc\nLocation: Desert Diamond Arena\n\n\n      \n            Glendale\, AZ\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-september-12-2026
@@ -1644,7 +1644,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-qatar/
 SUMMARY:ONE: Qatar
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20270325T210000Z
 DESCRIPTION:Promotion: one\nLocation: Aspire Dome\, Doha
 URL:https://www.onefc.com/events/one-qatar/
@@ -1655,7 +1655,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-october-17-2026
 SUMMARY:[UFC] Buckley vs Malott
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261018T000000Z
 DESCRIPTION:Promotion: ufc\nLocation: Rogers Place\n\n\n      \n            Edmonton AB\nCanada
 URL:https://www.ufc.com/event/ufc-fight-night-october-17-2026
@@ -1666,7 +1666,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/cryptocom-ufc-331
 SUMMARY:[UFC] UFC 331: Van vs Pantoja 2
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260920T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Crypto.com Arena\n\n\n      \n            Los Angeles\, CA\nUnited States
 URL:https://www.ufc.com/event/cryptocom-ufc-331
@@ -1677,7 +1677,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-100-prague
 SUMMARY:OKTAGON 100: Prague
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261229T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: O2 arena\, Hlavní město Praha\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-100-prague
@@ -1688,7 +1688,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-september-26-2026
 SUMMARY:[UFC] Rosas Jr. vs Barcelos
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260926T220000Z
 DESCRIPTION:Promotion: ufc\nLocation: Meta APEX\n\n\n      \n            Las Vegas\, NV\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-september-26-2026
@@ -1699,7 +1699,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-332
 SUMMARY:[UFC] UFC 332: TBD vs TBD
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261004T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Delta Center\n\n\n      \n            Salt Lake City\, UT\nUnited States
 URL:https://www.ufc.com/event/ufc-332
@@ -1710,7 +1710,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-samurai-5/
 SUMMARY:ONE SAMURAI 5
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261118T083000Z
 DESCRIPTION:Promotion: one\nLocation: EBARA WAVE Arena Ota\, Tokyo
 URL:https://www.onefc.com/events/one-samurai-5/
@@ -1721,7 +1721,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-samurai-6/
 SUMMARY:ONE SAMURAI 6
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261202T083000Z
 DESCRIPTION:Promotion: one\nLocation: Yokohama Buntai\, Yokohama
 URL:https://www.onefc.com/events/one-samurai-6/
@@ -1732,7 +1732,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-98-trinec
 SUMMARY:OKTAGON 98: Třinec
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20261121T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: WERK ARENA\, Třinec\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-98-trinec
@@ -1754,7 +1754,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/road-to-ufc-season-5-semifinals
 SUMMARY:[UFC] Maheshate vs Flowers
-DTSTAMP:20260826T053309Z
+DTSTAMP:20260827T160641Z
 DTSTART:20260828T090000Z
 DESCRIPTION:Promotion: ufc
 URL:https://www.ufc.com/event/road-to-ufc-season-5-semifinals
