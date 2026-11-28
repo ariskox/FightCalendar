@@ -798,7 +798,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one174/
 SUMMARY:ONE 174: Shanghai
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261212T083000Z
 DESCRIPTION:Promotion: one\nLocation: Shanghai Indoor Stadium\, Shanghai
 URL:https://www.onefc.com/events/one174/
@@ -1161,7 +1161,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/onefightnight50/
 SUMMARY:ONE Fight Night 50
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261219T020000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/onefightnight50/
@@ -1568,7 +1568,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-vienna-2027
 SUMMARY:OKTAGON 103: VIENNA
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270220T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Wiener Stadthalle\, Wien\, AT
 URL:https://oktagonmma.com/en/events/oktagon-vienna-2027
@@ -1623,7 +1623,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-99-dortmund
 SUMMARY:OKTAGON 99: ARAS VS. FLORES
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261205T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Westfalenhalle\, Dortmund\, DE
 URL:https://oktagonmma.com/en/events/oktagon-99-dortmund
@@ -1645,7 +1645,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-qatar/
 SUMMARY:ONE: Qatar
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270325T210000Z
 DESCRIPTION:Promotion: one\nLocation: Aspire Dome\, Doha
 URL:https://www.onefc.com/events/one-qatar/
@@ -1678,7 +1678,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-100-prague
 SUMMARY:OKTAGON 100: Prague
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261229T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: O2 arena\, Prague\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-100-prague
@@ -1722,7 +1722,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-samurai-6/
 SUMMARY:ONE SAMURAI 6
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261202T083000Z
 DESCRIPTION:Promotion: one\nLocation: Yokohama Buntai\, Yokohama
 URL:https://www.onefc.com/events/one-samurai-6/
@@ -1875,7 +1875,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-181/
 SUMMARY:ONE Friday Fights 181 & The Inner Circle 41
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261204T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-181/
@@ -1886,7 +1886,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-182/
 SUMMARY:ONE Friday Fights 182 & The Inner Circle 42
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261211T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-182/
@@ -1897,7 +1897,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.onefc.com/events/one-friday-fights-183/
 SUMMARY:ONE Friday Fights 183 & The Inner Circle 43
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261218T113000Z
 DESCRIPTION:Promotion: one\nLocation: Lumpinee Stadium\, Bangkok
 URL:https://www.onefc.com/events/one-friday-fights-183/
@@ -1941,7 +1941,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-107-dusseldorf
 SUMMARY:OKTAGON INFINITY: DÜSSELDORF
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270515T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: MERKUR SPIEL-ARENA\, Düsseldorf\, DE
 URL:https://oktagonmma.com/en/events/oktagon-107-dusseldorf
@@ -1974,7 +1974,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-335
 SUMMARY:[UFC] UFC 335: Oliveira vs Lopes
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261213T020000Z
 DESCRIPTION:Promotion: ufc\nLocation: T-Mobile Arena\n\n\n      \n            Las Vegas\, NV\nUnited States
 URL:https://www.ufc.com/event/ufc-335
@@ -1996,7 +1996,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-february-06-2027
 SUMMARY:[UFC] Salkilld vs Saint Denis
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270207T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Afterpay Arena\n\n\n      \n            Sydney Olympic Park NSW\nAustralia
 URL:https://www.ufc.com/event/ufc-fight-night-february-06-2027
@@ -2007,7 +2007,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-102-liberec
 SUMMARY:OKTAGON 102: KINCL VS. HUMBURGER
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270130T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Home Credit Arena\, Liberec\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-102-liberec
@@ -2018,7 +2018,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-336
 SUMMARY:[UFC] UFC 336: Van vs Kape
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270131T020000Z
 DESCRIPTION:Promotion: ufc\nLocation: Scotiabank Arena\n\n\n      \n            Toronto ON\nCanada
 URL:https://www.ufc.com/event/ufc-336
@@ -2029,7 +2029,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-january-16-2027
 SUMMARY:[UFC] Rodriguez vs Garcia
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270117T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: American Airlines Center\n\n\n      \n            Dallas\, TX\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-january-16-2027
@@ -2347,7 +2347,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-december-05-2026
 SUMMARY:[UFC] Adesanya vs Magomedov
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20261205T180000Z
 DESCRIPTION:Promotion: ufc\nLocation: The Venue\n\n\n      \n            Riyadh\nSaudi Arabia
 URL:https://www.ufc.com/event/ufc-fight-night-december-05-2026
@@ -2358,7 +2358,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/tipsport-cage-game-3
 SUMMARY:TIPSPORT CAGE GAME 3
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270506T173000Z
 DESCRIPTION:Promotion: oktagon\nLocation: BOBYHALL\, Brno\, CZ
 URL:https://oktagonmma.com/en/events/tipsport-cage-game-3
@@ -2369,7 +2369,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-january-23-2027
 SUMMARY:[UFC] Brady vs Bonfim
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270124T010000Z
 DESCRIPTION:Promotion: ufc\nLocation: Meta APEX\n\n\n      \n            Las Vegas\, NV\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-january-23-2027
@@ -2380,7 +2380,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-fight-night-february-13-2027
 SUMMARY:[UFC] Pyfer vs Nickal
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270213T220000Z
 DESCRIPTION:Promotion: ufc\nLocation: Rocket Arena\n\n\n      \n            Cleveland\, OH\nUnited States
 URL:https://www.ufc.com/event/ufc-fight-night-february-13-2027
@@ -2391,7 +2391,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-101-stuttgart
 SUMMARY:OKTAGON 101: DALASLAN VS. KINEHAN
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270116T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Hanns-Martin-Schleyer-Halle\, Stuttgart\, DE
 URL:https://oktagonmma.com/en/events/oktagon-101-stuttgart
@@ -2402,7 +2402,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-104-ostrava
 SUMMARY:OKTAGON 104: Ostrava
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270306T170000Z
 DESCRIPTION:Promotion: oktagon\nLocation: MUSTANG ARÉNA\, Ostrava\, CZ
 URL:https://oktagonmma.com/en/events/oktagon-104-ostrava
@@ -2413,7 +2413,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://www.ufc.com/event/ufc-337
 SUMMARY:[UFC] UFC 337: TBD vs TBD
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270220T220000Z
 DESCRIPTION:Promotion: ufc\nLocation: Kia Center\n\n\n      \n            Orlando\, FL\nUnited States
 URL:https://www.ufc.com/event/ufc-337
@@ -2424,7 +2424,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:https://oktagonmma.com/en/events/oktagon-106-bratislava
 SUMMARY:OKTAGON 106: BRATISLAVA
-DTSTAMP:20261127T050744Z
+DTSTAMP:20261128T050708Z
 DTSTART:20270501T160000Z
 DESCRIPTION:Promotion: oktagon\nLocation: Zimní stadion Ondřeje Nepely\, Bratislava\, SK
 URL:https://oktagonmma.com/en/events/oktagon-106-bratislava
